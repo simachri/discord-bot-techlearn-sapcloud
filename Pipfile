@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "==7.1.2"
+fastapi = "==0.63.0"
+h11 = "==0.12.0"
+pydantic = "==1.8.1"
+python-dotenv = "==0.17.1"
+starlette = "==0.13.6"
+typing-extensions = "==3.10.0.0"
+uvicorn = "==0.13.4"
+dispike = "*"
+
+[dev-packages]
+neovim = "*"
+
+[requires]
+python_version = "3.9"
