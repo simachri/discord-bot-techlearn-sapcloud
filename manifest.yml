@@ -9,3 +9,4 @@ applications:
   env:
     DEV: 'True'
   command: python app/main.py
+  health-check-type: none
