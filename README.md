@@ -117,8 +117,6 @@
      1. _Run | Add Configuration..._
      1. Provide the following contentn to `launch.json`:
         ```json
-          // Use IntelliSense to learn about possible attributes.
-          // Hover to view descriptions of existing attributes.
           "version": "0.2.0",
           "configurations": [
               {

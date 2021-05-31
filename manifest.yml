@@ -8,5 +8,5 @@ applications:
   memory: 128M
   env:
     DEV: 'True'
-  command: python app/main.py
+  command: python app/bot.py
   health-check-type: none
