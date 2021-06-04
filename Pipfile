@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 discord = "*"
 discord-py-slash-command = "*"
+python-dotenv = "*"
 
 [dev-packages]
 neovim = "*"

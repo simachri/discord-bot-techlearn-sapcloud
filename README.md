@@ -11,30 +11,31 @@
 
 ## Authorize Discord application
 
-  1. Create a Discord server/guild.
+  1. Create a Discord server (called a _guild_ in Discord wording).
   1. Create a new Discord application under https://discord.com/developers.
+  1. Add a _bot_ to the application.
   1. Go to section _OAuth2_: 
-     1. Select _SCOPES_ `applications.commands`
+     1. Select _SCOPES_:
+        - `applications.commands`
+        - `bot`
+          - `Use Slash Commands`
+          - `Send Messages`
      1. Copy the URL and open it in the browser to authorize the application to be used 
         in the Discord server/guild.
-  1. Add a _bot_ to the application.
-  1. The following IDs and tokens are required:
-     1. Bot token: _Bot | Click to Reveal Token_.
-     1. Application ID: _General Information_
-     1. Public key: _General Information_
+  1. Take the bot token: _Bot | Click to Reveal Token_.
 
 
 ## Create the Python app
 
   1. `pipenv install discord discord-py-slash-command`
-  1. `pipenv install -d python-dotenv`
+  1. `pipenv install python-dotenv`
   1. Create `app/main.py`.
 
 
 ## Local development
 
   Launch the app:
-  `python app/main.py --env-file .env.dev`
+  `python app/bot.py --env-file .env.dev`
 
 
 ## Deploy to BTP

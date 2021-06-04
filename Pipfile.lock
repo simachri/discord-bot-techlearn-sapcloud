@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "029dda7911b34942bdec0c8e9248633e0498d2a8a55498615388362d2bf20f30"
+            "sha256": "5c1f451a71952c89136f9da7c2349fae3b17bb626ee894322dc3ea76e5a35f7d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -93,11 +93,11 @@
         },
         "discord-py-slash-command": {
             "hashes": [
-                "sha256:ac2c7a83dc33ef253a9a11ab3f6abb085d5399ee85b5a05c5ec06e0b69fc1647",
-                "sha256:c65cf68c25de8b244f50938b9f5d2426a1726380c1103701cd764138a0c73b6b"
+                "sha256:192b4454bb5ca9e6032812a4142469782ab7a8a4f93c13fb04bb5a2ff100ddfb",
+                "sha256:5539b931af40b3bc91ee0a8ed1e97a58400c442ef542007db9dda315dce90144"
             ],
             "index": "pypi",
-            "version": "==1.1.2"
+            "version": "==1.2.2"
         },
         "discord.py": {
             "hashes": [
@@ -109,11 +109,11 @@
         },
         "idna": {
             "hashes": [
-                "sha256:5205d03e7bcbb919cc9c19885f9920d622ca52448306f2377daede5cf3faac16",
-                "sha256:c5b02147e01ea9920e6b0a3f1f7bb833612d507592c837a6c49552768f4054e1"
+                "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a",
+                "sha256:467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
             ],
-            "markers": "python_version >= '3.4'",
-            "version": "==3.1"
+            "markers": "python_version >= '3.5'",
+            "version": "==3.2"
         },
         "multidict": {
             "hashes": [
@@ -157,6 +157,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==5.1.0"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:00aa34e92d992e9f8383730816359647f358f4a3be1ba45e5a5cefd27ee91544",
+                "sha256:b1ae5e9643d5ed987fc57cc2583021e38db531946518130777734f9589b3141f"
+            ],
+            "index": "pypi",
+            "version": "==0.17.1"
         },
         "typing-extensions": {
             "hashes": [
