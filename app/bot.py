@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 from discord_slash import SlashCommand, SlashContext
 from dotenv import load_dotenv
+import logging
 
 # Read environment variables from a .env-file. The filepath is provided
 # to commandline parameter --env-file.
@@ -12,21 +13,31 @@ BOT_TOKEN = ''
 # - Our bot commdands can be defined globally or for a specific
 #   guild (= specific Discord server) only.
 guild_ids = None
+# - Log level
+LOG_LEVEL = logging.WARN
 try:
     opts, _ = getopt.getopt(sys.argv[1:], "--env-file:", ["env-file="])
     for opt, arg in opts:
         if opt == '--env-file':
             load_dotenv(dotenv_path=arg)
+            # Bot token is mandatory, so use os.environ as it raises an exception when 
+            # the environment variable is undefined.
             BOT_TOKEN = os.environ['BOT_TOKEN']
-            GUILD_ID = int(os.environ['GUILD_ID'])
-            if GUILD_ID:
-                guild_ids = [GUILD_ID]
+            # Guild ID is optional.
+            guild_id_str = os.getenv('GUILD_ID')
+            if guild_id_str:
+                guild_ids = [int(guild_id_str)]
+            # Log level is optional.
+            log_lvl = os.getenv('LOG_LEVEL')
+            if log_lvl:
+                LOG_LEVEL = int(log_lvl)
             break
 except:
     print("BOT_TOKEN and GUILD_ID are required as environment variables.")
     quit()
 
-
+# Setup logging.
+logging.basicConfig(level=LOG_LEVEL)
 
 bot = commands.Bot(command_prefix="")
 slash = SlashCommand(bot, sync_commands=True)
