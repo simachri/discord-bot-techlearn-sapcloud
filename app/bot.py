@@ -36,10 +36,11 @@ async def on_ready():
     print("Bot is up and running.")
 
 @slash.slash(name="ping",
+             description="Check if the Bot is available.",
              guild_ids=guild_ids)
 async def test(ctx: SlashContext):
-    embed = discord.Embed(title="embed test")
-    await ctx.send(content="test", embeds=[embed])
+    embed = discord.Embed(title="Hello World!")
+    await ctx.send(content="Bot is up and running.", embeds=[embed])
 
 
 
