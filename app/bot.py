@@ -53,6 +53,15 @@ async def test(ctx: SlashContext):
     embed = discord.Embed(title="Hello World!")
     await ctx.send(content="Bot is up and running.", embeds=[embed])
 
+@slash.slash(name="getSuperhero",
+             description="Send a superhero to the channel.",
+             guild_ids=guild_ids)
+async def post_superhero(ctx: SlashContext):
+    logging.info("Received slash command /getSuperhero.")
+    file = discord.File("testAvatar.png", filename="testAvatar.png")
+    embed = discord.Embed()
+    embed.set_image(url="attachment://testAvatar.png")
+    await ctx.send(file=file, embed=embed)
 
 
 bot.run(BOT_TOKEN)
