@@ -63,6 +63,17 @@ async def post_superhero(ctx: SlashContext):
     embed.set_image(url="attachment://testAvatar.png")
     await ctx.send(file=file, embed=embed)
 
+@slash.slash(name="makeSuperhero",
+             description="Make the bot become a superhero.",
+             guild_ids=guild_ids)
+async def change_avatar(ctx: SlashContext):
+    logging.info("Received slash command /makeSuperhero.")
+    with open("testAvatar.png", "rb") as img:
+      logging.info(f"Fetching image {img}.")
+      img_bytearr = bytearray(img.read())
+    # Change the bot's avatar.
+    await bot.user.edit(avatar=img_bytearr)
+    await ctx.send('Avatar changed.')
 
 bot.run(BOT_TOKEN)
 
