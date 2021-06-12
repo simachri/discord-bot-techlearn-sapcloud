@@ -4,9 +4,10 @@
 
   - Official Discord Slash Commands docs: 
     https://discord.com/developers/docs/interactions/slash-commands
-  - Libarry `discord.py`: https://discordpy.readthedocs.io/en/stable/api.html
+  - Library `discord.py`: https://discordpy.readthedocs.io/en/stable/api.html
   - Library `discord-py-slash-command`, that extends `discord.py`: 
     https://pypi.org/project/discord-py-slash-command/
+  - Superhero database API: https://akabab.github.io/superhero-api/api/
 
 
 ## Authorize Discord application
@@ -29,6 +30,7 @@
 
   1. `pipenv install discord discord-py-slash-command`
   1. `pipenv install python-dotenv`
+  1. `pipenv install requests`
   1. Create `app/main.py`.
 
 
