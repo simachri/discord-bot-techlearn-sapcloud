@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import logging
 import requests
 from io import BytesIO
+import random
 
 # Read environment variables from a .env-file. The filepath is provided
 # to commandline parameter --env-file.
@@ -47,21 +48,33 @@ bot = commands.Bot(command_prefix="")
 slash = SlashCommand(bot, sync_commands=True)
 
 
-async def fetch_random_superhero_avatar():
-    """Fetch a random superhero avatar from https://akabab.github.io/superhero-api/api/.
-      Returns:
-        The avatar image binary data.
+async def fetch_random_superhero_avatar() -> tuple[str, BytesIO]:
+    """Fetch a random superhero avatar from the API https://akabab.github.io/superhero-api/api/.
+
+      :returns:
+        - name of avatar
+        - avatar as bytes
+      :raises:
+          requests.ConnectionError: Calling the API returned a non-200 error code.
     """
-    # Use the cached URL: https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api
-    response = requests.get("https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/1.json")
+    # Use the cached URL of the API: https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api
+    # The superhero database contains 731 entries, see https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json
+    # Generate a random superhero ID between 1 and 731.
+    hero_id = random.randint(1,731)
+    response = requests.get(f"https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/{hero_id}.json")
     if response.status_code != 200:
-        return
+        raise requests.ConnectionError
     hero_data = response.json()
-    hero_avatar_url = hero_data["images"]["xs"]
+
+    # Fetch the avatar image.
+    hero_avatar_url = hero_data["images"]["sm"]
     response = requests.get(hero_avatar_url, stream=True)
     if response.status_code != 200:
-        return
-    return BytesIO(response.content)
+        raise requests.ConnectionError
+
+    hero_name = hero_data["name"]
+
+    return hero_name, BytesIO(response.content)
 
 
 @bot.event
@@ -83,7 +96,8 @@ async def test(ctx: SlashContext):
 async def post_superhero(ctx: SlashContext):
     logging.info("Received slash command /getSuperhero.")
     # file = discord.File("testAvatar.png", filename="testAvatar.png")
-    file = discord.File(await fetch_random_superhero_avatar(), filename="testAvatar.png")
+    _, avatar_bytes = await fetch_random_superhero_avatar()
+    file = discord.File(avatar_bytes, filename="testAvatar.png")
     embed = discord.Embed()
     embed.set_image(url="attachment://testAvatar.png")
     await ctx.send(file=file, embed=embed)
@@ -100,8 +114,16 @@ async def change_avatar(ctx: SlashContext):
     ## Change the bot's avatar.
     # await bot.user.edit(avatar=img_bytearr)
     # Change the bot's avatar.
-    avatar_bytes = await fetch_random_superhero_avatar()
-    await bot.user.edit(avatar=bytearray(avatar_bytes.getvalue()))
-    await ctx.send('Avatar changed.')
+    try:
+        hero_name, avatar_bytes = await fetch_random_superhero_avatar()
+        await bot.user.edit(avatar=bytearray(avatar_bytes.getvalue()))
+        file = discord.File(avatar_bytes, filename="newAvatar.png")
+        embed = discord.Embed()
+        embed.set_image(url="attachment://newAvatar.png")
+        await ctx.send(content=f'Bot became {hero_name}.',
+                       file=file, embed=embed)
+    except requests.ConnectionError:
+        await ctx.send("Calling the superhero API failed.")
+      
 
 bot.run(BOT_TOKEN)
