@@ -60,8 +60,9 @@ async def fetch_random_superhero_avatar() -> tuple[str, BytesIO]:
     # Use the cached URL of the API: https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api
     # The superhero database contains 731 entries, see https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json
     # Generate a random superhero ID between 1 and 731.
-    hero_id = random.randint(1,731)
-    response = requests.get(f"https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/{hero_id}.json")
+    hero_id = random.randint(1, 731)
+    response = requests.get(
+        f"https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/{hero_id}.json")
     if response.status_code != 200:
         raise requests.ConnectionError
     hero_data = response.json()
@@ -95,25 +96,25 @@ async def test(ctx: SlashContext):
              guild_ids=guild_ids)
 async def post_superhero(ctx: SlashContext):
     logging.info("Received slash command /getSuperhero.")
-    # file = discord.File("testAvatar.png", filename="testAvatar.png")
-    _, avatar_bytes = await fetch_random_superhero_avatar()
-    file = discord.File(avatar_bytes, filename="testAvatar.png")
-    embed = discord.Embed()
-    embed.set_image(url="attachment://testAvatar.png")
-    await ctx.send(file=file, embed=embed)
+    try:
+        hero_name, avatar_bytes = await fetch_random_superhero_avatar()
+        file = discord.File(avatar_bytes, filename="newAvatar.png")
+        embed = discord.Embed()
+        embed.set_image(url="attachment://newAvatar.png")
+        await ctx.send(content=f'Here comes {hero_name}:',
+                       file=file, embed=embed)
+        logging.info(f"Posted superhero {hero_name}.")
+    except requests.ConnectionError:
+        logging.exception("Superhero API returned an error.")
+        await ctx.send("Calling the superhero API failed.")
 
 
 @slash.slash(name="makeSuperhero",
              description="Make the bot become a superhero.",
              guild_ids=guild_ids)
 async def change_avatar(ctx: SlashContext):
+    """Change the bot's avatar."""
     logging.info("Received slash command /makeSuperhero.")
-    # with open("testAvatar.png", "rb") as img:
-        # logging.info(f"Fetching image {img}.")
-        # img_bytearr = bytearray(img.read())
-    ## Change the bot's avatar.
-    # await bot.user.edit(avatar=img_bytearr)
-    # Change the bot's avatar.
     try:
         hero_name, avatar_bytes = await fetch_random_superhero_avatar()
         await bot.user.edit(avatar=bytearray(avatar_bytes.getvalue()))
@@ -122,8 +123,10 @@ async def change_avatar(ctx: SlashContext):
         embed.set_image(url="attachment://newAvatar.png")
         await ctx.send(content=f'Bot became {hero_name}.',
                        file=file, embed=embed)
+        logging.info(f"Changed the bot's avatar to {hero_name}.")
     except requests.ConnectionError:
+        logging.exception("Superhero API returned an error.")
         await ctx.send("Calling the superhero API failed.")
-      
+
 
 bot.run(BOT_TOKEN)
