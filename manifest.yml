@@ -1,0 +1,12 @@
+---
+applications:
+- name: discord-slash-cmd
+  buildpacks:
+    - python_buildpack
+  host: xi3k
+  path: .
+  memory: 128M
+  env:
+    DEV: 'True'
+  command: python app/bot.py
+  health-check-type: none
