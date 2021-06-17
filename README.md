@@ -1,4 +1,4 @@
-# Create a Discord slash command with a FastAPI server running on SAP BTP
+# Create a Discord bot running on SAP Business Technolgy Platform
 
 ## Docs
 
@@ -9,6 +9,17 @@
     https://pypi.org/project/discord-py-slash-command/
   - Superhero database API: https://akabab.github.io/superhero-api/api/
 
+## Login to your Business Technology Platform (BTP) trial account
+
+  1. Go to https://account.hanatrial.ondemand.com/cockpit/ and sign in using the email 
+     addresse and password provided to you by the trainer.
+  1. On the _Welcome to SAP BTP Trial_ screen, click on _SAP Business Application 
+     Studio_ (top left element under _Quick Tool Access_).
+     1. __python_discord_bot__
+
+  __Note__: After he workshop has finished, you can create your own BTP trial account and
+  set up the project from scratch. The BTP trial account is free for one year and can be 
+  terminated at any time. [This is the guide how to set up the project on your own](Project_Setup.md).
 
 ## Authorize Discord application
 
