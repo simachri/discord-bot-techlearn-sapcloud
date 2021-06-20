@@ -1,7 +1,4 @@
-.venv
-.env
 .env.dev
-
 .vimspector.json
 myAvatar.jpg
 superheroes.json
