@@ -1,23 +1,22 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    "version": "0.2.0",
-    "configurations": [
-        {
-        "name": "Python: Current File",
-        "type": "python",
-        "request": "launch",
-        "program": "${file}",
-        "console": "integratedTerminal"
-        },
-        {
-        "name": "Python: Discord Bot",
-        "type": "python",
-        "request": "launch",
-        "program": "${workspaceFolder}/app/bot.py",
-        "console": "integratedTerminal",
-        "envFile": "${workspaceFolder}/.env.dev"
-        }      
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python: Discord Bot",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/app/bot.py",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env.dev"
+    }
+  ]
 }
-
