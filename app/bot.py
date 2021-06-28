@@ -15,6 +15,7 @@ bot = commands.Bot(command_prefix="")
 
 @bot.event
 async def on_ready():
+    """Show log message when Bot has connected to Discord."""
     print("Bot is up and running.")
 
 
