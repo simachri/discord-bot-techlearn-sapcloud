@@ -11,4 +11,11 @@ logging.basicConfig(level=log_level)
 # Start the bot and make it connect to the Discord guild/server
 # through the bot_token.
 bot = commands.Bot(command_prefix="")
+
+
+@bot.event
+async def on_ready():
+    print("Bot is up and running.")
+
+
 bot.run(bot_token)
