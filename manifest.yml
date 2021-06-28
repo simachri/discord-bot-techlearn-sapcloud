@@ -7,7 +7,7 @@ applications:
   path: .
   memory: 128M
   env:
-    BOT_TOKEN: 'ODU2MDYzNzQ0NDc0ODczODY2.YM7lfQ.9Qf2KpaJV9GgB0xjKRdfcXFqGEQ'
+    BOT_TOKEN: '<BOT TOKEN>'
     LOG_LEVEL: '30'
   command: python app/bot.py
   health-check-type: none
