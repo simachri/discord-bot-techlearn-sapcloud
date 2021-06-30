@@ -28,7 +28,7 @@ def read_from_env() -> tuple[str, Optional[list[int]], int]:
     log_lvl: int = logging.WARN
 
     # Parse the commandline parameter to read the path to the .env file..
-    # This is optional. The environment variables might be already set in the system 
+    # This is optional. The environment variables might be already set in the system
     # environment.
     opts, _ = getopt.getopt(sys.argv[1:], "--env-file:", ["env-file="])
     for opt, arg in opts:

@@ -2,6 +2,7 @@ import requests
 from io import BytesIO
 import random
 
+
 async def fetch_random_superhero_avatar() -> tuple[str, BytesIO]:
     """Fetch a random superhero avatar from the API https://akabab.github.io/superhero-api/api/.
 
