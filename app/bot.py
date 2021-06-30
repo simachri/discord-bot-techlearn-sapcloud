@@ -19,7 +19,7 @@ logging.basicConfig(level=log_level)
 @bot.event
 async def on_ready():
     """Show log message when Bot has connected to Discord."""
-    print("Bot is up and running.")
+    logging.info("Bot is up and running.")
 
 
 @slash.slash(name="ping",
