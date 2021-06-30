@@ -1,6 +1,7 @@
 .venv
 .env
 .env.dev
+__pycache__
 
 .vimspector.json
 myAvatar.jpg
