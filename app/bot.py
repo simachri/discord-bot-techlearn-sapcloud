@@ -1,6 +1,9 @@
 from discord.ext import commands
+from discord_slash import SlashCommand, SlashContext
 import logging
+from requests import HTTPError
 from config import read_from_env
+from superheroes import fetch_random_superhero_avatar
 
 # Read the configuration from environment variables.
 bot_token, guild_ids, log_level = read_from_env()
