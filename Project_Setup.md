@@ -79,7 +79,7 @@
            Dev Space and run the command again.
 
 
-     1. Install _virtualenv_ and _pipenv_ which are used to manage the dependencies of the 
+     1. Install _pipenv_ which is used to manage the dependencies of the 
         application such as the Discord library:
         1. Open a terminal through _Terminal | New Terminal_.
         1. Run `pip install pipenv`.
