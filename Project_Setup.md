@@ -73,28 +73,15 @@
             __Note__ It will install __Python 3.9.0__ although the command says _2.9.0_.
 
         1. Wait half a minute or so until it is installed. Unfortunately, there is no 
-            notification that the installation has finished.
-        1. Tell the Dev Space the location of the installed Python: Go to _View | Find 
-            Command..._ search for _'python'_ and select _
+           notification that the installation has finished.
 
-     1. Install the _Python_ extension:
-        1.  On the toolbar on the left hand side, click the button _Extensions: Open VSX 
-            Registry_.
-        1. In the search field, search for _'python'_, select __Python__ and click the button 
-            _Install_ right next to it and wait until it is installed (the button changes to 
-            _Uninstall_).
-        1. Create/adjust the file `.vscode/settings.json` to tell the BAS the location of our Python runtime environment:
-           ```json
-           {
-               "actions": [],
-               "python.pythonPath": "~/projects/sap-learnfest-discord-bot-starter/.venv/bin/python"
-           }
-           ```
+           __Note__: If no folder `user/python_*` is created and Python is not available, restart the 
+           Dev Space and run the command again.
+
 
      1. Install _virtualenv_ and _pipenv_ which are used to manage the dependencies of the 
         application such as the Discord library:
         1. Open a terminal through _Terminal | New Terminal_.
-        1. Run `pip install virtualenv`.
         1. Run `pip install pipenv`.
 
   1. Install all our project dependencies that are defined in the `Pipfile`: 
@@ -102,6 +89,20 @@
         folder.
      1. Open a terminal through _Terminal | New Terminal_.
      1. Run `pipenv install`.
+
+  1. Install the _Python_ extension:
+     1. On the toolbar on the left hand side, click the button _Extensions: Open VSX 
+        Registry_.
+     1. In the search field, search for _'python'_, select __Python__ and click the button 
+        _Install_ right next to it and wait until it is installed (the button changes to 
+        _Uninstall_).
+     1. Create/adjust the file `.vscode/settings.json` to tell the BAS the location of our Python runtime environment:
+        ```json
+        {
+            "actions": [],
+            "python.pythonPath": "~/projects/sap-learnfest-discord-bot-starter/.venv/bin/python"
+        }
+        ```
 
   1. Create a `.env.dev` file in the project workspace and provide the following 
      contents:
