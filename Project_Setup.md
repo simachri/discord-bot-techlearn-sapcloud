@@ -97,21 +97,7 @@
         _Install_ right next to it and wait until it is installed (the button changes to 
         _Uninstall_).
 
-  1. Create a `.env.dev` file in the project workspace and provide the following 
-     contents:
-     <a id="env_vars"></a>
-     ```
-      BOT_TOKEN=<insert the Bot token from the Discord developer portal>
-      GUILD_ID=836543941343313921
-      # Log level:
-      # CRITICAL = 50
-      # ERROR = 40
-      # WARNING = 30
-      # INFO = 20
-      # DEBUG = 10
-      # NOTSET = 0
-      LOG_LEVEL=20
-     ```
+  1. In the `.env.dev` file replace the `Bot token` with the actual Bot token.
 
   1. Verify that everything works:
      1. On the toolbar on the left hand side, click the button _Debug_.
