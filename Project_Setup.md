@@ -96,13 +96,6 @@
      1. In the search field, search for _'python'_, select __Python__ and click the button 
         _Install_ right next to it and wait until it is installed (the button changes to 
         _Uninstall_).
-     1. Create/adjust the file `.vscode/settings.json` to tell the BAS the location of our Python runtime environment:
-        ```json
-        {
-            "actions": [],
-            "python.pythonPath": "~/projects/sap-learnfest-discord-bot-starter/.venv/bin/python"
-        }
-        ```
 
   1. Create a `.env.dev` file in the project workspace and provide the following 
      contents:
@@ -119,27 +112,6 @@
       # NOTSET = 0
       LOG_LEVEL=20
      ```
-
-  1. Create a _run and debug configuration_:
-     1. Go to _Run | Add Configuration..._.
-     1. Provide the following content to `launch.json`:
-        ```json
-        {
-          // Use IntelliSense to learn about possible attributes.
-          // Hover to view descriptions of existing attributes.
-          "version": "0.2.0",
-          "configurations": [
-              {
-                "name": "Python: Discord Bot",
-                "type": "python",
-                "request": "launch",
-                "program": "${workspaceFolder}/app/main.py",
-                "console": "integratedTerminal",
-                "envFile": "${workspaceFolder}/.env.dev"
-              }      
-            ]
-        }
-        ```
 
   1. Verify that everything works:
      1. On the toolbar on the left hand side, click the button _Debug_.
