@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 from discord_slash import SlashCommand, SlashContext
 import logging
@@ -24,6 +25,18 @@ slash = SlashCommand(bot, sync_commands=True)
 async def on_ready():
     """Show log message when Bot has connected to Discord."""
     logging.info("Bot is up and running.")
+
+@bot.event
+async def on_message(message: discord.Message):
+    """Reply to any 'Hello bot' message in the channel."""
+    logging.info(f"Received message '%s' from user %s.", message.content, message.author.display_name)
+    # Ignore any message that has been sent by the bot.
+    if message.author == bot.user:
+        return
+
+    if message.content == 'Hello bot':
+        channel = message.channel
+        await channel.send('Hey mate, hope you are doing well.')
 
 
 @slash.slash(name="ping", # The name of our slash command. It will become available as '/<name>' in Discord.
