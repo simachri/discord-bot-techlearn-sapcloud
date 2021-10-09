@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 from discord_slash import SlashCommand, SlashContext
 import logging
@@ -7,14 +6,19 @@ from config import read_from_env
 from superheroes import fetch_random_superhero_avatar
 
 # Read the configuration from environment variables.
-bot_token, guild_ids, log_level = read_from_env()
+# - bot_token: Our authorization key/"password" for the bot to be able
+#              to communicate with Discord.
+# - guild_ids: List of Discord Guild/Server IDs that will use the bot.
+#              The datatype is a list of IDs as the API requires a list (see below),
+#              but in fact we only provide one single ID here.
+# - log_level: Not used here - defines the "threshold/criticality" of messages that 
+#              shall be printed to the log.
+bot_token, guild_ids, _ = read_from_env()
 
+# Create a basic bot.
 bot = commands.Bot(command_prefix="")
+# Make the bot handle slash commands.
 slash = SlashCommand(bot, sync_commands=True)
-
-# Setup logging.
-logging.basicConfig(level=log_level)
-
 
 @bot.event
 async def on_ready():
@@ -22,16 +26,13 @@ async def on_ready():
     logging.info("Bot is up and running.")
 
 
-@slash.slash(# The name of our slash command. It will become available as '/<name>' in Discord.
-             name="ping",
-             # A short description what the slash command does. It will be visible in 
-             # Discord.  
-             description="Check if the Bot responds.",
-             # We provide the guild_id of our Discord server. This is a little "trick"
-             # within the Discord API to make our slash command become available in 
-             # Discord right away.
-             guild_ids=guild_ids)
+@slash.slash(name="ping", # The name of our slash command. It will become available as '/<name>' in Discord.
+             description="Check if the Bot responds.", # Description what the slash command does.
+                                                       # It will be visible in Discord.  
+             guild_ids=guild_ids # See the explanation above regarding guild_ids.
+             )
 async def pong(ctx: SlashContext):
+    """Respond to the /ping command"""
     # Write an info log message to our console.
     logging.info("Received slash command /ping.")
     # ctx.send sends the text back to Discord.
