@@ -2,11 +2,17 @@
 
 ## Docs
 
-  - Official Discord Slash Commands docs: 
+  - Python Discord Bot Library: 
+    - Extended library providing __Slash Commands__: `discord-py-interactions`
+      - [GitHub](https://github.com/goverfl0w/discord-interactions)
+      - [Docs](https://discord-interactions.readthedocs.io/en/latest/)
+    - Core library that is used by `discord-py-interactions`: `discord.py`
+      - [GitHub](https://github.com/Rapptz/discord.py)
+      - [Docs](https://discordpy.readthedocs.io/en/latest/)
+
+  - Discord Slash Commands reference: 
     https://discord.com/developers/docs/interactions/slash-commands
-  - Library `discord.py`: https://discordpy.readthedocs.io/en/stable/api.html
-  - Library `discord-py-slash-command`, that extends `discord.py`: 
-    https://pypi.org/project/discord-py-slash-command/
+
   - Superhero database API: https://akabab.github.io/superhero-api/api/
 
 
