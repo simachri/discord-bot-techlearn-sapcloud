@@ -135,10 +135,10 @@
 ### Alternative C: Local development
 <a id="proj_setup_local"></a>
 
-  You can develop the Bot locally on your machine using. This requires some additional 
-  setup steps.
+  You can develop the Bot locally on your machine using your favorite IDE/coding editor. 
+  This requires some additional setup steps.
 
-  1. Install your favorite __IDE/editor__. Here are some examples:
+  1. Install your favorite __IDE/coding editor__. Here are some examples:
      - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
      - [PyCharm](https://www.jetbrains.com/pycharm/)
      - [Neovim](https://neovim.io/))
