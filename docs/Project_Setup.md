@@ -5,7 +5,8 @@
 
   1. Create a new Discord server (called a _guild_ in Discord wording) or use an existing
      one that you own.
-  1. Go to https://discord.com/developers/applications and create a new Discord _application_.
+  1. Go to https://discord.com/developers/applications and create a new Discord 
+     _application_.
   1. Go to menu item _Bot_ and add a _bot_ to the application.
   1. Go to section _OAuth2_: 
      1. Select _SCOPES_:
@@ -15,9 +16,13 @@
           - `Send Messages`
      1. Copy the URL and open it in the browser to authorize the application to be used 
         in the Discord server/guild.
-  1. Take the Bot token: _Bot | Token_ and press the button _Copy_ or _Click to Reveal Token_.
-     The Bot token needs to be provided as `BOT_TOKEN` to the file [.env.dev](#env_vars), 
-     see below.
+  1. Get the _Bot token_: Go to _Bot | Token_ and press the button _Copy_.
+     The Bot token needs to be provided as `BOT_TOKEN` to the file `.env.dev` file in the 
+     bot coding, see below.
+  1. Get the _Guild ID_: Open the server in the Web app. The _URL_ contains the _Guild 
+     ID_. `https://discord.com/channels/<guild ID>/840074709856550942`
+     The guild ID needs to be provided as `GUILD_ID` to the file `.env.dev` file in the 
+     bot coding, see below.
 
 
 ## Setting up your development environment
@@ -120,7 +125,9 @@
         _Install_ right next to it and wait until it is installed (the button changes to 
         _Uninstall_).
 
-  1. In the `.env.dev` file replace the `Bot token` with the actual Bot token.
+  1. In the `.env.dev` file
+     - provide the _Bot token_ with the actual bot token that has been generated when you set up the bot in Discord,
+     - and the _ID_ of the _guild/server_ that your bot will operate on, see [here](#prepare_discord_bot_appl),
 
   1. Verify that everything works:
      1. On the toolbar on the left hand side, click the button _Debug_.
@@ -169,9 +176,9 @@
      1. Open a terminal through _Terminal | New Terminal_.
      1. Run `pipenv install`.
 
-  1. In the `.env.dev` file replace the `Bot token` with the actual bot token that has 
-     been generated when you set up the bot in Discord, see 
-     [here](#prepare_discord_bot_appl).
+  1. In the `.env.dev` file
+     - provide the _Bot token_ with the actual bot token that has been generated when you set up the bot in Discord,
+     - and the _ID_ of the _guild/server_ that your bot will operate on, see [here](#prepare_discord_bot_appl),
 
   1. Verify that everything works:
      - _VSCode_:
