@@ -5,6 +5,9 @@ from config import read_from_env
 # Read the configuration from environment variables.
 bot_token, guild_ids, _ = read_from_env()
 
+# Enable basic loggin to the console.
+logging.basicConfig()
+
 # Set up a new bot instance.
 bot = commands.Bot(command_prefix="")
 
@@ -12,7 +15,7 @@ bot = commands.Bot(command_prefix="")
 @bot.event
 async def on_ready():
     """Show log message when Bot has connected to Discord."""
-    logging.info("Bot is up and running.")
+    logging.info("Bot is now online in the Discord channel.")
 
 
 # Start the bot and make it connect to the Discord guild/server
