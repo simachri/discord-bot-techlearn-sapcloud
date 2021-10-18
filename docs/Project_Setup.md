@@ -15,7 +15,9 @@
           - `Use Slash Commands`
           - `Send Messages`
      1. Copy the URL and open it in the browser to authorize the application to be used 
-        in the Discord server/guild.
+        in the Discord server.
+  1. _Check_ that the bot is available on your server by opening a text channel. The bot 
+     should be shown as channel participant (currently offline).
   1. Get the _Bot token_: Go to _Bot | Token_ and press the button _Copy_.
      The Bot token needs to be provided as `BOT_TOKEN` to the file `.env.dev` file in the 
      bot coding, see below.
