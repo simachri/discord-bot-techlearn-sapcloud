@@ -5,8 +5,8 @@ from config import read_from_env
 # Read the configuration from environment variables.
 bot_token, guild_ids, _ = read_from_env()
 
-# Enable basic loggin to the console.
-logging.basicConfig()
+# Enable basic logging to the console.
+logging.basicConfig(level=logging.INFO)
 
 # Set up a new bot instance.
 bot = commands.Bot(command_prefix="")
