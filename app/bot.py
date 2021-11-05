@@ -68,6 +68,10 @@ async def change_avatar(ctx: SlashContext):
         await ctx.defer()
         # Call the superhero API and receive a random superhero image.
         hero_name, avatar_bytes = await fetch_random_superhero_avatar()
+        
+        if bot.user == None:
+            logging.error("User is not logged in.")
+            return 
         await bot.user.edit(avatar=bytearray(avatar_bytes.getvalue()))
         # # Optional: Embed a larger image of the super hero into the Bot's reply.
         # file = discord.File(avatar_bytes, filename="newAvatar.png")
