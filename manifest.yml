@@ -3,10 +3,12 @@ applications:
 - name: discord-slash-cmd
   buildpacks:
     - python_buildpack
-  host: xi3k
+  host: learningfestival
   path: .
   memory: 128M
   env:
-    DEV: 'True'
+    BOT_TOKEN: '<Bot token>'
+    LOG_LEVEL: '30'
   command: python app/bot.py
   health-check-type: none
+  no-route: true
