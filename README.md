@@ -6,7 +6,7 @@
 ## Recap
 
   Three steps are required to get your first Discord bot up and running:
-  1. [Prepare your bot on your Discord server](docs/Project_Setup#prepare_discord_bot_appl).
+  1. [Prepare your bot on your Discord server](./docs/Project_Setup#prepare_discord_bot_appl).
 
   1. Set up your __development environment__ to write the bot coding. There are multiple 
      alternatives:
