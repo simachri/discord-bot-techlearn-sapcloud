@@ -10,19 +10,15 @@
 
   1. Set up your __development environment__ to write the bot coding. There are multiple 
      alternatives:
-     - [Alternative A](Project_Setup.md#proj_setup_use_workshop_account): __SAP 
-      Business Application Studio__ used in the __workshop__ and suitable for the workshop 
-      participants who have gathered a BTP trial account.
+     - [Alternative A](Project_Setup.md#proj_setup_local): Code the bot __locally on 
+       your machine__.
 
      - [Alternative B](Project_Setup.md#proj_setup_bas): Use the 
        __SAP Business Application Studio__, an online development environment that runs 
        in the browser and does not required any local software installation.
 
-     - [Alternative C](Project_Setup.md#proj_setup_local): Develop the bot __locally on 
-       your machine__. This requires more preparation.
-
   1. [Deploy](Project_Setup.md#deployment_cf) the bot coding in a container to the 
-     __SAP Cloud Foundry runtime environment__.
+     __SAP Business Technology Platform__ (Cloud Foundry runtime environment).
 
 
 ## Docs

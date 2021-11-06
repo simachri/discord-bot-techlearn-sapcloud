@@ -29,26 +29,55 @@
 
 ## Setting up your development environment
 
-### Alternative A: SAP Business Application Studio (BAS) with workshop account
-<a id="proj_setup_use_workshop_account"></a>
+### Alternative A: Local development
+<a id="proj_setup_local"></a>
 
-  The BAS is an online development environment that runs in the browser and does not 
-  required any local software installation.
+  You can develop the Bot locally on your machine using your favorite IDE/coding editor. 
+  This requires some additional setup steps.
 
-  This alternative is for you if you have participated in the workshop and already 
-  received an SAP BTP trial account.
+  1. Install your favorite __IDE/coding editor__. Here are some examples:
+     - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
+     - [PyCharm](https://www.jetbrains.com/pycharm/)
+     - [Neovim](https://neovim.io/))
 
-  1. Login to the [SAP Business Technology Platform (BTP)](https://account.hanatrial.ondemand.com/cockpit/)
-     and sign in using the email address and password provided to you by the trainer.
-  1. On the _Welcome to SAP BTP Trial_ screen, click on _SAP Business Application Studio_ 
-     (top left element under _Quick Tool Access_).
-  1. You see a Dev Space __python_discord_bot__. Click the _"Play"_ button right next to 
-     it and wait 30 seconds until it says _RUNNING_. Click on the Dev Space. This will 
-     start up the development environment.
+     __Note__: The steps below contain information on how to set up the project using 
+     _VSCode_ but can be adapted to any other editor:
 
-  __Note__: After he workshop has finished, you can create your own BTP trial account and
-  set up the project from scratch. The BTP trial account is free for one year and can be 
-  terminated at any time. [This is the guide how to set up the project on your own](Project_Setup.md).
+  1. Install [Python](https://www.python.org/downloads/).
+  1. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+  1. Install the commandline Interface to deploy the application to the SAP BTP Cloud Foundry 
+     environment: [cf7 CLI](https://github.com/cloudfoundry/cli/blob/master/doc/installation-instructions/installation-instructions-v7.md#installers-and-compressed-binaries) 
+  1. Launch your __IDE/editor__ and clone the GitHub project. 
+     1. Open the _Explorer_ view (topmost button on the left hand side toolbar).
+     1. Click _Clone Repository_ and provide the GitHub repo: 
+        https://github.com/simachri/discord-bot-techlearn-sapcloud
+     1. Once the clone process has finished, make VSCode open the project folder.
+     1. Install the _Python extension_, available under _Extensions_ on the toolbar on 
+        the left hand side.
+
+  1. Install _pipenv_ which is used to manage the dependencies of the bot 
+     application such as the Discord library:
+     1. Open a terminal _Terminal | New Terminal_.
+     1. Run `pip install pipenv`.
+
+  1. Install all our project dependencies that are defined in the `Pipfile`: 
+     1. Create a folder `.venv` in the project folder such that `pipenv` installs the 
+        dependencies into this folder.
+     1. Open a terminal through _Terminal | New Terminal_.
+     1. Run `pipenv install`.
+
+  1. In the `.env.dev` file
+     - provide the _Bot token_ with the actual bot token that has been generated when you set up the bot in Discord,
+     - and the _ID_ of the _guild/server_ that your bot will operate on, see [here](#prepare_discord_bot_appl),
+
+  1. Verify that everything works:
+     - _VSCode_:
+       1. On the toolbar on the left hand side, click the button _Debug_.
+       1. In the dropdown menu select the run configuration _Python: Discord Bot_.
+       1. Start the application by clicking the _"Play"_ button.
+
+     - alternatively, using the commandline:
+       `python app/bot.py --env-file .env.dev`
 
 
 ### Alternative B: SAP Business Application Studio (BAS)
@@ -140,56 +169,28 @@
      select _Install_. A linter is a helper tool for analyzing your source code to find 
      errors and provide style guides.
 
+### Alternative C: SAP Business Application Studio (BAS) with workshop account
+<a id="proj_setup_use_workshop_account"></a>
 
-### Alternative C: Local development
-<a id="proj_setup_local"></a>
+  The BAS is an online development environment that runs in the browser and does not 
+  required any local software installation.
 
-  You can develop the Bot locally on your machine using your favorite IDE/coding editor. 
-  This requires some additional setup steps.
+  This alternative is for you if you have participated in the workshop and already 
+  received an SAP BTP trial account.
 
-  1. Install your favorite __IDE/coding editor__. Here are some examples:
-     - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
-     - [PyCharm](https://www.jetbrains.com/pycharm/)
-     - [Neovim](https://neovim.io/))
+  1. Login to the [SAP Business Technology Platform (BTP)](https://account.hanatrial.ondemand.com/cockpit/)
+     and sign in using the email address and password provided to you by the trainer.
+  1. On the _Welcome to SAP BTP Trial_ screen, click on _SAP Business Application Studio_ 
+     (top left element under _Quick Tool Access_).
+  1. You see a Dev Space __python_discord_bot__. Click the _"Play"_ button right next to 
+     it and wait 30 seconds until it says _RUNNING_. Click on the Dev Space. This will 
+     start up the development environment.
 
-     __Note__: The steps below contain information on how to set up the project using 
-     _VSCode_ but can be adapted to any other editor:
+  __Note__: After he workshop has finished, you can create your own BTP trial account and
+  set up the project from scratch. The BTP trial account is free for one year and can be 
+  terminated at any time. [This is the guide how to set up the project on your own](Project_Setup.md).
 
-  1. Install [Python](https://www.python.org/downloads/).
-  1. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-  1. Install the commandline Interface to deploy the application to the SAP BTP Cloud Foundry 
-     environment: [cf7 CLI](https://github.com/cloudfoundry/cli/blob/master/doc/installation-instructions/installation-instructions-v7.md#installers-and-compressed-binaries) 
-  1. Launch your __IDE/editor__ and clone the GitHub project. 
-     1. Open the _Explorer_ view (topmost button on the left hand side toolbar).
-     1. Click _Clone Repository_ and provide the GitHub repo: 
-        https://github.com/simachri/discord-bot-techlearn-sapcloud
-     1. Once the clone process has finished, make VSCode open the project folder.
-     1. Install the _Python extension_, available under _Extensions_ on the toolbar on 
-        the left hand side.
 
-  1. Install _pipenv_ which is used to manage the dependencies of the bot 
-     application such as the Discord library:
-     1. Open a terminal _Terminal | New Terminal_.
-     1. Run `pip install pipenv`.
-
-  1. Install all our project dependencies that are defined in the `Pipfile`: 
-     1. Create a folder `.venv` in the project folder such that `pipenv` installs the 
-        dependencies into this folder.
-     1. Open a terminal through _Terminal | New Terminal_.
-     1. Run `pipenv install`.
-
-  1. In the `.env.dev` file
-     - provide the _Bot token_ with the actual bot token that has been generated when you set up the bot in Discord,
-     - and the _ID_ of the _guild/server_ that your bot will operate on, see [here](#prepare_discord_bot_appl),
-
-  1. Verify that everything works:
-     - _VSCode_:
-       1. On the toolbar on the left hand side, click the button _Debug_.
-       1. In the dropdown menu select the run configuration _Python: Discord Bot_.
-       1. Start the application by clicking the _"Play"_ button.
-
-     - alternatively, using the commandline:
-       `python app/bot.py --env-file .env.dev`
 
 
 ## Deployment to the BTP Cloud Foundry runtime environment
