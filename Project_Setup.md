@@ -38,7 +38,7 @@
   1. Install your favorite __IDE/coding editor__. Here are some examples:
      - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
      - [PyCharm](https://www.jetbrains.com/pycharm/)
-     - [Neovim](https://neovim.io/))
+     - [Neovim](https://neovim.io/)
 
      __Note__: The steps below contain information on how to set up the project using 
      _VSCode_ but can be adapted to any other editor:
