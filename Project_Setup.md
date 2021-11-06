@@ -46,6 +46,7 @@
   1. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
   1. Install the commandline Interface to deploy the application to the SAP BTP Cloud Foundry 
      environment: [cf7 CLI](https://github.com/cloudfoundry/cli/blob/master/doc/installation-instructions/installation-instructions-v7.md#installers-and-compressed-binaries) 
+     <a id="cf_cli"></a>
   1. Launch your __IDE/editor__ and clone the GitHub project. 
      1. Open the _Explorer_ view (topmost button on the left hand side toolbar).
      1. Click _Clone Repository_ and provide the GitHub repo: 
@@ -195,23 +196,18 @@
 ## Deployment to the BTP Cloud Foundry runtime environment
 <a id="deployment_cf"></a>
 
-  The BTP provides a runtime environment called _Cloud Foundry_ (CF) to run your Bot without 
-  having to interactively start and stop it in the BAS. 
+  The BTP provides a runtime environment called _Cloud Foundry_ (CF) to run your Bot.
 
-  __Prerequisite:__ A free BTP trial acoount is required.
-  Go [here](https://www.sap.com/products/business-technology-platform/trial.html#individual-users)
-  to create an account.
+  __Prerequisites:__
+  - A free BTP trial acoount is required.
+    Go [here](https://www.sap.com/products/business-technology-platform/trial.html#individual-users) to create an account.
+  - [Cloud Foundry CLI](#cf_cli) has to be installed.
 
-### One-time setup: Connect your project with the CF environment
+### One-time setup: Prepare the deployment
 <a id="cf_setup"></a>
 
-  Open your Dev Space in the BAS:
-  1. Go back to https://account.hanatrial.ondemand.com/cockpit/
-  1. Launch the _SAP Business Application Studio_ and open your Dev Space 
-     __python_discord_bot__.
-  1. Login to the SAP Cloud Foundry Environment:
-     - In _BAS or VSCode_: Go to _View | Find command... | CF: Login to Cloud Foundry_
-     - Alternatively, using the commandline: `cf login`
+  1. Login to the SAP Cloud Foundry Environment through a terminal/commandline:
+     `cf login`
 
   1. Provide the _API endpoint_ URL of your CF environment. You can finde it using the 
      following steps:
@@ -227,8 +223,6 @@
   1. Provide the same login credentials that you use when logging in to the BTP.
   1. For _Organization_ select the proposed one.
   1. For _Space_ select the proposed one.
-
-### One-time setup: Prepare the deployment
 
   1. If you have added new Python modules/dependencies to your application by using 
      `pipenv install <module>`, update the `requirements.txt` from the `Pipfile`: 
