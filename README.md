@@ -6,23 +6,19 @@
 ## Recap
 
   Three steps are required to get your first Discord bot up and running:
-  1. [Prepare your bot on your Discord server](docs/Project_Setup#prepare_discord_bot_appl).
+  1. [Prepare your bot on your Discord server](Project_Setup.md#prepare_discord_bot_appl).
 
   1. Set up your __development environment__ to write the bot coding. There are multiple 
      alternatives:
-     - [Alternative A](docs/Project_Setup#proj_setup_use_workshop_account): __SAP 
-      Business Application Studio__ used in the __workshop__ and suitable for the workshop 
-      participants who have gathered a BTP trial account.
+     - [Alternative A](Project_Setup.md#proj_setup_local): Code the bot __locally on 
+       your machine__.
 
-     - [Alternative B](docs/Project_Setup#proj_setup_bas): Use the 
+     - [Alternative B](Project_Setup.md#proj_setup_bas): Use the 
        __SAP Business Application Studio__, an online development environment that runs 
        in the browser and does not required any local software installation.
 
-     - [Alternative C](docs/Project_Setup#proj_setup_local): Develop the bot __locally on 
-       your machine__. This requires more preparation.
-
-  1. [Deploy](docs/Project_Setup#deployment_cf) the bot coding in a container to the 
-     __SAP Cloud Foundry runtime environment__.
+  1. [Deploy](Project_Setup.md#deployment_cf) the bot coding in a container to the 
+     __SAP Business Technology Platform__ (Cloud Foundry runtime environment).
 
 
 ## Docs

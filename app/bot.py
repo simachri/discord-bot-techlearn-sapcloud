@@ -36,7 +36,7 @@ async def on_message(message: discord.Message):
 
     if message.content == 'Hello bot':
         channel = message.channel
-        await channel.send('Hey mate, hope you are doing well.')
+        await channel.send('Hi there, hope you are doing well.')
 
 
 @slash.slash(name="ping", # The name of our slash command. It will become available as '/<name>' in Discord.
@@ -73,14 +73,14 @@ async def change_avatar(ctx: SlashContext):
             logging.error("User is not logged in.")
             return 
         await bot.user.edit(avatar=bytearray(avatar_bytes.getvalue()))
-        # # Optional: Embed a larger image of the super hero into the Bot's reply.
-        # file = discord.File(avatar_bytes, filename="newAvatar.png")
-        # embed = discord.Embed()
-        # embed.set_image(url="attachment://newAvatar.png")
-        # await ctx.send(content=f'Bot became {hero_name}.',
-                       # file=file, embed=embed)
-        await ctx.send(content=f'Bot became {hero_name}.')
-        logging.info(f"Changed the bot's avatar to {hero_name}.")
+        # Optional: Embed a larger image of the super hero into the Bot's reply.
+        file = discord.File(avatar_bytes, filename="newAvatar.png")
+        embed = discord.Embed()
+        embed.set_image(url="attachment://newAvatar.png")
+        await ctx.send(content=f'Bot became {hero_name}.',
+                      file=file, embed=embed)
+        #await ctx.send(content=f'Bot became {hero_name}.')
+        #logging.info(f"Changed the bot's avatar to {hero_name}.")
     except HTTPError as err:
         logging.exception(f"Superhero API returned an error {err.response.text}.")
         await ctx.send("Calling the superhero API failed. See the console log for details.")
