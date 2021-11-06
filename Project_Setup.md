@@ -35,10 +35,9 @@
   You can develop the Bot locally on your machine using your favorite IDE/coding editor. 
   This requires some additional setup steps.
 
-  1. Install your favorite __IDE/coding editor__. Here are some examples:
+  1. Install your favorite __IDE/coding editor__. Here are two examples:
      - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
      - [PyCharm](https://www.jetbrains.com/pycharm/)
-     - [Neovim](https://neovim.io/)
 
      __Note__: The steps below contain information on how to set up the project using 
      _VSCode_ but can be adapted to any other editor:
